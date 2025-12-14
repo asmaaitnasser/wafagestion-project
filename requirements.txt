@@ -1,0 +1,33 @@
+# Data manipulation
+pandas
+numpy
+
+# Excel files
+openpyxl
+
+# Visualization
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+
+# Optimization (portfolio reconstruction: sum-to-one, non-negativity)
+cvxpy
+ecos
+osqp
+
+# Web scraping - API / HTML
+requests
+beautifulsoup4
+
+# Web scraping - Dynamic pages (ASFiM)
+selenium
+webdriver-manager
+
+# Dashboard / App
+streamlit
+
+# Utility
+tqdm
+python-dateutil
