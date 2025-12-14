@@ -1,0 +1,25 @@
+==============================================================
+RECONSTITUTION WG ACTIONS — RIDGE (FULL SAMPLE)
+==============================================================
+Période : 2023-01-13 → 2025-11-28
+Nb obs  : 147
+Nb actions/features : 15
+
+METRICS (reconstitution)
+R²            : 0.1205
+Corr(y, yhat) : 0.3472
+Tracking Error (hebdo, std resid) : 0.016048
+
+Intercept (hebdo): 0.005336
+
+TOP 10 COEFS (pas encore des pondérations OPCVM, juste signal linéaire)
+MNG     +0.002877
+BOA     +0.002610
+LBV     +0.001341
+LHF     +0.001319
+IAM     +0.001308
+CIH     +0.000473
+GAZ     +0.000410
+WAA     +0.000071
+CSR     +0.000064
+TQM     -0.000330

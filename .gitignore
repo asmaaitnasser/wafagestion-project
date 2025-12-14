@@ -42,13 +42,23 @@ ENV/
 Thumbs.db
 desktop.ini
 
-# Data files (optionnel - décommentez si vous ne voulez pas pousser les données)
+# Data files - Fichiers trop volumineux (décommentez au besoin)
 # data/raw/
 # data/intermediate/
 # data/processed/
-# data/features/
 # *.xlsx
-# *.csv
+
+# Models - Modèles ML volumineux (décommentez si >100MB)
+# *.h5
+# *.pkl
+# *.joblib
+# *.model
+# *.weights
+
+# Fichiers temporaires ML
+*.ckpt
+*.pb
+checkpoint
 
 # Logs
 *.log
