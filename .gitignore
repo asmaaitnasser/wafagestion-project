@@ -50,9 +50,10 @@ desktop.ini
 performance_hebdomadaire_asfim.xlsx
 
 # Dossiers de données
-backend/data/raw/              # Données brutes téléchargées
-backend/data/intermediate/     # Fichiers CSV intermédiaires volumineux
-backend/data/features/         # Features calculées (peuvent être régénérées)
+backend/data/raw/
+backend/data/intermediate/
+backend/data/features/
+backend/reconstruction/
 
 # Garder seulement data/processed/ si fichiers <5MB
 # Décommentez la ligne ci-dessous si trop volumineux :
