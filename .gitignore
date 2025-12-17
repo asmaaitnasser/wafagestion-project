@@ -60,7 +60,7 @@ backend/reconstruction/
 # backend/data/processed/
 
 # Datasets ML (peuvent être régénérés)
-backend/datasets/*.csv
+# backend/datasets/*.csv  # Commented to allow small datasets (<1MB) for deployment
 !backend/datasets/.gitkeep     # Garder le dossier vide
 
 # Résultats d'exécution (peuvent être régénérés)

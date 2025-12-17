@@ -1,33 +1,34 @@
-# Data manipulation
-pandas
-numpy
+# Core Data Science
+pandas>=2.1.0
+numpy>=1.24.0
+python-dateutil>=2.8.2
 
-# Excel files
+# Machine Learning
+scikit-learn>=1.3.0
+scipy>=1.11.0
+
+# Optimization
+cvxpy>=1.4.0
+ecos
+osqp
+
+# Web Scraping
+requests
+beautifulsoup4
+selenium
+webdriver-manager
+
+# Excel Files
 openpyxl
 
 # Visualization
 matplotlib
 seaborn
 
-# Machine Learning
-scikit-learn
+# Frontend (Streamlit)
+streamlit>=1.28.0
+plotly>=5.17.0
 
-# Optimization (portfolio reconstruction: sum-to-one, non-negativity)
-cvxpy
-ecos
-osqp
-
-# Web scraping - API / HTML
-requests
-beautifulsoup4
-
-# Web scraping - Dynamic pages (ASFiM)
-selenium
-webdriver-manager
-
-# Dashboard / App
-streamlit
-
-# Utility
+# Utilities
 tqdm
-python-dateutil
+joblib
