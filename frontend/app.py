@@ -29,6 +29,41 @@ if css_path.exists():
 # Additional inline CSS for specific tweaks
 st.markdown("""
     <style>
+    /* Application background - TOUTE L'APPLICATION */
+    .stApp {
+        background: #E8F0F8 !important;
+        background-attachment: fixed;
+    }
+    
+    /* Fond de la page principale */
+    [data-testid="stAppViewContainer"] {
+        background: #E8F0F8 !important;
+    }
+    
+    /* Fond de la sidebar (navbar) */
+    [data-testid="stSidebar"] {
+        background: #E8F0F8 !important;
+    }
+    
+    [data-testid="stSidebar"] > div {
+        background: #E8F0F8 !important;
+    }
+    
+    /* Fond du conteneur principal */
+    .block-container {
+        background: #E8F0F8 !important;
+    }
+    
+    /* Fond de tous les éléments Streamlit */
+    section[data-testid="stSidebar"] {
+        background: #E8F0F8 !important;
+    }
+    
+    /* Fond du main content */
+    .main .block-container {
+        background: #E8F0F8 !important;
+    }
+    
     /* Hide Streamlit elements */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
@@ -138,15 +173,36 @@ st.markdown("""
         width: 21rem !important;
         min-width: 21rem !important;
         max-width: 21rem !important;
+        background: #E8F0F8 !important;
     }
 
     section[data-testid="stSidebar"] > div {
         width: 21rem !important;
+        background: #E8F0F8 !important;
     }
 
     /* Ensure sidebar is visible when collapsed */
     section[data-testid="stSidebar"][aria-expanded="false"] {
         margin-left: 0 !important;
+        background: #E8F0F8 !important;
+    }
+    
+    /* Fond de tous les éléments Streamlit */
+    body {
+        background: #E8F0F8 !important;
+    }
+    
+    html {
+        background: #E8F0F8 !important;
+    }
+    
+    /* Fond des colonnes et conteneurs */
+    div[data-testid="stVerticalBlock"] {
+        background: transparent !important;
+    }
+    
+    div[data-testid="column"] {
+        background: transparent !important;
     }
     </style>
     <script>
