@@ -1,0 +1,849 @@
+/* ========================================
+   WAFA GESTION - CUSTOM STYLES
+   Modern & Professional Design - Premium Edition
+   ======================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ========================================
+   ROOT VARIABLES (Design System)
+   ======================================== */
+:root {
+    /* Wafa Gestion Colors */
+    --wg-blue-dark: #003A8F;
+    --wg-blue-light: #5B8EDB;
+    --wg-gold: #C9A227;
+    --wg-white: #FFFFFF;
+    --wg-gray-dark: #4D4D4D;
+    --wg-gray-light: #F2F2F2;
+    --wg-gray-medium: #E0E0E0;
+
+    /* Semantic Colors */
+    --success: #10B981;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #3B82F6;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #003A8F 0%, #5B8EDB 100%);
+    --gradient-gold: linear-gradient(135deg, #C9A227 0%, #FFD700 100%);
+    --gradient-subtle: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,58,143,0.03) 100%);
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+* {
+    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.main {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 50%, #F0F4F8 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Glassmorphism effect */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.glass-dark {
+    background: rgba(0, 58, 143, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* ========================================
+   HEADER STYLES
+   ======================================== */
+.main-header {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    animation: slideDown 0.6s ease-out;
+}
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+}
+
+.main-header p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   SIDEBAR STYLES
+   ======================================== */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+    border-right: 1px solid var(--wg-gray-medium);
+}
+
+[data-testid="stSidebar"] .stRadio > label {
+    font-weight: 600;
+    color: var(--wg-blue-dark);
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 0.5rem 0;
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label:hover {
+    border-color: var(--wg-blue-light);
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] label[data-checked="true"] {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: var(--wg-blue-dark);
+    box-shadow: var(--shadow-lg);
+    transform: translateX(5px);
+}
+
+/* ========================================
+   CARD COMPONENTS - Enhanced
+   ======================================== */
+.custom-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--wg-gray-medium);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.custom-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-primary);
+    transform: scaleY(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 58, 143, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.custom-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 58, 143, 0.15), 0 0 0 1px rgba(0, 58, 143, 0.1);
+    transform: translateY(-6px) scale(1.01);
+}
+
+.custom-card:hover::before {
+    transform: scaleY(1);
+}
+
+.custom-card:hover::after {
+    opacity: 1;
+}
+
+/* Gradient Card */
+.gradient-card {
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Gold Accent Card */
+.gold-card {
+    background: linear-gradient(135deg, white 0%, #FFF9E6 100%);
+    border: 2px solid var(--wg-gold);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+
+.gold-card::after {
+    content: '✨';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+/* ========================================
+   METRIC CARDS - Enhanced with animations
+   ======================================== */
+.metric-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 58, 143, 0.03) 0%, rgba(91, 142, 219, 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.metric-card:hover {
+    border-color: var(--wg-blue-light);
+    box-shadow: 0 12px 24px rgba(0, 58, 143, 0.15), 0 0 0 1px rgba(0, 58, 143, 0.1);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.metric-card:hover::before {
+    transform: scaleX(1);
+}
+
+.metric-card:hover::after {
+    opacity: 1;
+}
+
+.metric-card .metric-value {
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover .metric-value {
+    transform: scale(1.05);
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--wg-gray-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--wg-blue-dark);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.metric-delta {
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.metric-delta.positive {
+    color: var(--success);
+}
+
+.metric-delta.negative {
+    color: var(--error);
+}
+
+/* ========================================
+   BUTTONS - Enhanced with ripple effect
+   ======================================== */
+.stButton > button {
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.875rem 2rem;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 4px 14px rgba(0, 58, 143, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+}
+
+.stButton > button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.stButton > button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stButton > button:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.stButton > button:hover::after {
+    opacity: 1;
+}
+
+.stButton > button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 58, 143, 0.4);
+}
+
+.stButton > button:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: all 0.1s ease;
+}
+
+/* Secondary Button */
+.secondary-button {
+    background: white !important;
+    color: var(--wg-blue-dark) !important;
+    border: 2px solid var(--wg-blue-dark) !important;
+}
+
+.secondary-button:hover {
+    background: var(--wg-blue-dark) !important;
+    color: white !important;
+}
+
+/* ========================================
+   TABS
+   ======================================== */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 1rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background: var(--wg-gray-light);
+}
+
+.stTabs [aria-selected="true"] {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+}
+
+/* ========================================
+   DATAFRAMES / TABLES
+   ======================================== */
+.dataframe {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.dataframe thead tr {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.dataframe tbody tr:hover {
+    background: var(--wg-gray-light);
+    transition: background 0.2s ease;
+}
+
+/* ========================================
+   CHARTS / PLOTLY
+   ======================================== */
+.js-plotly-plot {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   BADGES & PILLS
+   ======================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.badge-success {
+    background: #ECFDF5;
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.badge-warning {
+    background: #FFFBEB;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+}
+
+.badge-info {
+    background: #EFF6FF;
+    color: var(--info);
+    border: 1px solid var(--info);
+}
+
+.badge-gold {
+    background: var(--gradient-gold);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   ANIMATIONS - Enhanced
+   ======================================== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slideUp {
+    animation: slideUp 0.8s ease-out;
+}
+
+.animate-fadeInScale {
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+}
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+/* ========================================
+   TOOLTIPS
+   ======================================== */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: var(--wg-gray-dark);
+    color: white;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    box-shadow: var(--shadow-lg);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ========================================
+   EXPANDER / ACCORDION
+   ======================================== */
+.streamlit-expanderHeader {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.streamlit-expanderHeader:hover {
+    box-shadow: var(--shadow-md);
+    background: var(--wg-gray-light);
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+.stProgress > div > div {
+    background: var(--gradient-primary);
+    border-radius: 999px;
+}
+
+/* ========================================
+   ALERTS / MESSAGES
+   ======================================== */
+.stAlert {
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid;
+}
+
+/* ========================================
+   ENHANCED INTERACTIVE ELEMENTS
+   ======================================== */
+
+/* Hover effects for dataframes */
+.dataframe tbody tr {
+    transition: all 0.2s ease;
+}
+
+.dataframe tbody tr:hover {
+    background: linear-gradient(90deg, rgba(0, 58, 143, 0.05) 0%, rgba(91, 142, 219, 0.05) 100%);
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 58, 143, 0.1);
+}
+
+/* Enhanced plotly charts */
+.js-plotly-plot {
+    transition: all 0.3s ease;
+}
+
+.js-plotly-plot:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 24px rgba(0, 58, 143, 0.15);
+}
+
+/* Loading spinner enhancement */
+.stSpinner > div {
+    border-color: var(--wg-blue-light) transparent transparent transparent;
+}
+
+/* Selectbox and input enhancements */
+.stSelectbox > div > div {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.stSelectbox > div > div:hover {
+    box-shadow: 0 4px 12px rgba(0, 58, 143, 0.15);
+}
+
+.stSlider > div {
+    padding: 1rem 0;
+}
+
+/* Expander enhancements */
+.streamlit-expanderHeader {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.streamlit-expanderHeader:hover {
+    background: linear-gradient(90deg, rgba(0, 58, 143, 0.05) 0%, rgba(91, 142, 219, 0.05) 100%);
+    transform: translateX(4px);
+}
+
+/* Success/Error/Info/Warning messages */
+.stAlert {
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    animation: slideUp 0.4s ease-out;
+}
+
+/* Progress bar */
+.stProgress > div > div {
+    background: var(--gradient-primary);
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgba(0, 58, 143, 0.3);
+}
+
+/* Tabs enhancement */
+.stTabs [data-baseweb="tab"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.stTabs [data-baseweb="tab"]::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.stTabs [aria-selected="true"]::after {
+    width: 80%;
+}
+
+/* Number input enhancement */
+.stNumberInput > div > div > input {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.stNumberInput > div > div > input:focus {
+    box-shadow: 0 0 0 3px rgba(0, 58, 143, 0.1);
+    border-color: var(--wg-blue-light);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .metric-value {
+        font-size: 1.75rem;
+    }
+
+    .custom-card {
+        padding: 1.25rem;
+    }
+
+    .stButton > button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   SCROLLBAR ENHANCEMENT
+   ======================================== */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F2F2F2;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    border: 2px solid #F2F2F2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--wg-blue-dark);
+}
+
+/* ========================================
+   DARK MODE SUPPORT (Optional)
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles if needed */
+}
