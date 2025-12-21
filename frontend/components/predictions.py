@@ -19,38 +19,102 @@ MLPredictor = import_ml_predictor()
 
 
 def show():
+    # Enhanced Header Section
+    st.markdown("""
+        <div class="gradient-card animate-fadeIn" style='
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
+        '>
+            <div style='display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;'>
+                <div style='
+                    width: 60px;
+                    height: 60px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 2rem;
+                '>🔮</div>
+                <div>
+                    <h1 style='color: white; margin: 0; font-size: 2.5rem; font-weight: 800;'>
+                        Prédictions ML & Recommandations
+                    </h1>
+                    <p style='color: rgba(255, 255, 255, 0.9); margin: 0.5rem 0 0 0; font-size: 1.1rem;'>
+                        Intelligence Artificielle pour l'Investissement
+                    </p>
+                </div>
+            </div>
+            <div style='
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(10px);
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                margin-top: 1rem;
+            '>
+                <p style='color: white; margin: 0; font-size: 1rem; line-height: 1.6;'>
+                    Utilisez le <strong>Machine Learning</strong> pour prédire les rendements futurs des actions
+                    et identifier les meilleures opportunités d'investissement.
+                </p>
+                <p style='color: rgba(255, 255, 255, 0.9); margin: 0.5rem 0 0 0; font-size: 0.95rem;'>
+                    <strong>Modèle</strong> : Ridge Regression avec facteurs techniques (Momentum, Volatilité, Sharpe Ratio)
+                </p>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
     # Back button
-    if st.button("← Retour à l'accueil", key="back_to_home_predictions"):
+    if st.button("← Retour à l'accueil", key="back_to_home_predictions", use_container_width=False):
         st.session_state['page'] = "🏠 Accueil"
         st.rerun()
 
-    st.markdown("## 🔮 Prédictions ML & Recommandations d'Investissement")
+    st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
 
+    # Enhanced Parameters Section
     st.markdown("""
-    Cette page utilise le **Machine Learning** pour prédire les rendements futurs des actions
-    et identifier les meilleures opportunités d'investissement.
+        <div class="custom-card animate-slideUp" style='margin-bottom: 2rem;'>
+            <h2 style='color: #003A8F; font-size: 1.75rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;'>
+                <span style='font-size: 2rem;'>⚙️</span>
+                Paramètres de Prédiction
+            </h2>
+    """, unsafe_allow_html=True)
 
-    **Modèle** : Ridge Regression avec facteurs techniques (Momentum, Volatilité, Sharpe Ratio)
-    """)
+    col_slider, col_info = st.columns([2, 1])
 
-    st.markdown("---")
+    with col_slider:
+        n_top = st.slider(
+            "Nombre de recommandations",
+            min_value=3,
+            max_value=20,
+            value=10,
+            help="Nombre d'actions à recommander",
+            key="n_top_slider"
+        )
 
-    # Paramètres
-    col1, col2 = st.columns([2, 1])
+    with col_info:
+        st.markdown("""
+            <div style='
+                background: linear-gradient(135deg, rgba(0, 58, 143, 0.05) 0%, rgba(91, 142, 219, 0.05) 100%);
+                padding: 1.5rem;
+                border-radius: 12px;
+                border-left: 4px solid #10B981;
+            '>
+                <div style='font-size: 1.5rem; margin-bottom: 0.5rem;'>💡</div>
+                <div style='font-weight: 600; color: #003A8F; margin-bottom: 0.5rem;'>Astuce</div>
+                <div style='color: #4D4D4D; font-size: 0.9rem;'>
+                    Plus de recommandations = analyse plus complète mais moins précise
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
 
-    with col1:
-        st.markdown("### ⚙️ Paramètres de Prédiction")
+    st.markdown("</div>", unsafe_allow_html=True)
 
-    n_top = st.slider(
-        "Nombre de recommandations",
-        min_value=3,
-        max_value=20,
-        value=10,
-        help="Nombre d'actions à recommander"
-    )
-
-    # Bouton prédiction
-    st.markdown("---")
+    # Enhanced Action Button
+    st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
 
     if st.button("🚀 Générer les Prédictions", type="primary", use_container_width=True):
 
@@ -69,59 +133,173 @@ def show():
     if 'predictions' in st.session_state:
         predictions = st.session_state['predictions']
 
-        st.success("✅ Prédictions générées avec succès !")
+        st.markdown("""
+            <div style='
+                background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+                color: white;
+                padding: 1.5rem;
+                border-radius: 16px;
+                margin: 1.5rem 0;
+                box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+                animation: slideUp 0.5s ease-out;
+            '>
+                <div style='display: flex; align-items: center; gap: 1rem;'>
+                    <span style='font-size: 2.5rem;'>✅</span>
+                    <div>
+                        <h3 style='margin: 0; font-size: 1.5rem;'>Prédictions générées avec succès !</h3>
+                        <p style='margin: 0.5rem 0 0 0; opacity: 0.95;'>Les recommandations sont disponibles ci-dessous</p>
+                    </div>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
 
-        st.markdown("---")
-        st.markdown("### 🏆 Top Actions Recommandées")
+        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+        
+        st.markdown("""
+            <div style='
+                background: white;
+                padding: 2rem;
+                border-radius: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                margin-bottom: 2rem;
+            '>
+                <h2 style='color: #003A8F; font-size: 2rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;'>
+                    <span style='font-size: 2.5rem;'>🏆</span>
+                    Top Actions Recommandées
+                </h2>
+        """, unsafe_allow_html=True)
 
-        # Display top recommendations with medals
-        for idx, row in predictions.head(3).iterrows():
-            medal = ["🥇", "🥈", "🥉"][idx] if idx < 3 else f"#{idx+1}"
+        # Enhanced Top 3 Display with Cards
+        medals = ["🥇", "🥈", "🥉"]
+        medal_colors = ["#FFD700", "#C0C0C0", "#CD7F32"]
+        
+        for position, (idx, row) in enumerate(predictions.head(3).iterrows()):
+            medal = medals[position]
+            medal_color = medal_colors[position]
+            pred_value = row['Predicted_Return']
+            is_positive = pred_value > 0
+            
+            st.markdown(f"""
+                <div class="custom-card animate-slideUp" style='
+                    margin-bottom: 1rem;
+                    border-left: 5px solid {medal_color};
+                    animation-delay: {position * 0.1}s;
+                '>
+                    <div style='display: flex; align-items: center; gap: 1.5rem;'>
+                        <div style='
+                            font-size: 4rem;
+                            line-height: 1;
+                        '>{medal}</div>
+                        <div style='flex: 1;'>
+                            <h3 style='
+                                color: #003A8F;
+                                font-size: 2rem;
+                                margin: 0 0 0.5rem 0;
+                                font-weight: 800;
+                            '>{row['Ticker']}</h3>
+                            <div style='
+                                display: flex;
+                                gap: 1rem;
+                                flex-wrap: wrap;
+                            '>
+                                <span style='
+                                    background: rgba(0, 58, 143, 0.1);
+                                    color: #003A8F;
+                                    padding: 0.5rem 1rem;
+                                    border-radius: 8px;
+                                    font-size: 0.9rem;
+                                    font-weight: 600;
+                                '>
+                                    Momentum 3M: {row.get('Momentum_3M', 0):.2%}
+                                </span>
+                            </div>
+                        </div>
+                        <div style='
+                            text-align: right;
+                            padding: 1rem;
+                            background: {'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.1) 100%)' if is_positive else 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(248, 113, 113, 0.1) 100%)'};
+                            border-radius: 12px;
+                            min-width: 150px;
+                        '>
+                            <div style='
+                                color: {'#10B981' if is_positive else '#EF4444'};
+                                font-size: 2rem;
+                                font-weight: 800;
+                                margin-bottom: 0.25rem;
+                            '>
+                                {pred_value:.4f}
+                            </div>
+                            <div style='
+                                color: #4D4D4D;
+                                font-size: 0.85rem;
+                            '>
+                                Rendement prédit (hebdomadaire)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
 
-            col_medal, col_ticker, col_pred = st.columns([0.5, 2, 2])
+        st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
 
-            with col_medal:
-                st.markdown(f"## {medal}")
+        # Enhanced Visualizations Section
+        st.markdown("""
+            <div style='
+                background: white;
+                padding: 2rem;
+                border-radius: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                margin-bottom: 2rem;
+            '>
+                <h2 style='color: #003A8F; font-size: 1.75rem; margin-bottom: 1.5rem;'>
+                    📊 Visualisations Interactives
+                </h2>
+        """, unsafe_allow_html=True)
 
-            with col_ticker:
-                st.markdown(f"### {row['Ticker']}")
-                if 'Momentum_3M' in row:
-                    st.caption(f"Momentum 3M: {row.get('Momentum_3M', 0):.2%}")
-
-            with col_pred:
-                pred_value = row['Predicted_Return']
-                color = "green" if pred_value > 0 else "red"
-                st.markdown(f"### :{color}[{pred_value:.4f}]")
-                st.caption("Rendement prédit (hebdomadaire)")
-
-        st.markdown("---")
-
-        # Visualizations
         col_left, col_right = st.columns(2)
 
         with col_left:
             st.markdown("#### 📊 Classement des Prédictions")
 
-            # Bar chart - Wafa Gestion colors
-            # Custom color scale: dark blue (negative) -> gold (positive)
+            # Enhanced Bar chart with better styling
             fig_bar = go.Figure(go.Bar(
                 x=predictions['Predicted_Return'].values,
                 y=predictions['Ticker'].values,
                 orientation='h',
                 marker=dict(
                     color=predictions['Predicted_Return'].values,
-                    colorscale=[[0, '#5B8EDB'], [0.5, '#F2F2F2'], [1, '#C9A227']],
-                    showscale=True
+                    colorscale=[[0, '#EF4444'], [0.3, '#F59E0B'], [0.5, '#F2F2F2'], [0.7, '#10B981'], [1, '#C9A227']],
+                    showscale=True,
+                    colorbar=dict(
+                        title=dict(text="Rendement Prédit", font=dict(color='#003A8F', family='Inter')),
+                        tickfont=dict(color='#4D4D4D', family='Inter')
+                    ),
+                    line=dict(color='white', width=1)
                 ),
                 text=[f"{v:.4f}" for v in predictions['Predicted_Return'].values],
                 textposition='auto',
+                textfont=dict(color='white', size=11, family='Inter'),
+                hovertemplate='<b>%{y}</b><br>Rendement Prédit: %{x:.4f}<extra></extra>'
             ))
 
             fig_bar.update_layout(
                 xaxis_title="Rendement Prédit",
                 yaxis_title="Action",
-                height=500,
-                yaxis=dict(autorange="reversed")
+                height=550,
+                plot_bgcolor='rgba(0,0,0,0)',
+                paper_bgcolor='rgba(0,0,0,0)',
+                font=dict(family='Inter', color='#4D4D4D'),
+                margin=dict(l=20, r=20, t=20, b=20),
+                xaxis=dict(
+                    gridcolor='rgba(0, 0, 0, 0.05)',
+                    showgrid=True
+                ),
+                yaxis=dict(
+                    autorange="reversed",
+                    gridcolor='rgba(0, 0, 0, 0.05)',
+                    showgrid=True
+                )
             )
 
             st.plotly_chart(fig_bar, use_container_width=True)
@@ -129,7 +307,7 @@ def show():
         with col_right:
             st.markdown("#### 🎯 Analyse des Facteurs")
 
-            # Scatter plot if we have momentum data
+            # Enhanced Scatter plot
             if 'Momentum_3M' in predictions.columns and 'Volatility_3M' in predictions.columns:
                 fig_scatter = px.scatter(
                     predictions,
@@ -138,22 +316,65 @@ def show():
                     size='Volatility_3M' if 'Volatility_3M' in predictions.columns else None,
                     color='Predicted_Return',
                     hover_data=['Ticker'],
-                    color_continuous_scale=[[0, '#5B8EDB'], [0.5, '#F2F2F2'], [1, '#C9A227']],
+                    color_continuous_scale=[[0, '#EF4444'], [0.3, '#F59E0B'], [0.5, '#F2F2F2'], [0.7, '#10B981'], [1, '#C9A227']],
                     labels={
                         'Momentum_3M': 'Momentum 3 Mois',
                         'Predicted_Return': 'Rendement Prédit',
                         'Volatility_3M': 'Volatilité 3M'
-                    }
+                    },
+                    hover_name='Ticker'
                 )
 
-                fig_scatter.update_layout(height=500)
+                fig_scatter.update_layout(
+                    height=550,
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    paper_bgcolor='rgba(0,0,0,0)',
+                    font=dict(family='Inter', color='#4D4D4D'),
+                    margin=dict(l=20, r=20, t=20, b=20),
+                    xaxis=dict(
+                        gridcolor='rgba(0, 0, 0, 0.05)',
+                        showgrid=True
+                    ),
+                    yaxis=dict(
+                        gridcolor='rgba(0, 0, 0, 0.05)',
+                        showgrid=True
+                    )
+                )
+                
                 st.plotly_chart(fig_scatter, use_container_width=True)
             else:
-                st.info("Les données de facteurs (Momentum, Volatilité) ne sont pas disponibles pour l'affichage.")
+                st.markdown("""
+                    <div style='
+                        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+                        padding: 2rem;
+                        border-radius: 12px;
+                        border-left: 4px solid #3B82F6;
+                        text-align: center;
+                    '>
+                        <div style='font-size: 3rem; margin-bottom: 1rem;'>ℹ️</div>
+                        <p style='color: #4D4D4D; margin: 0;'>
+                            Les données de facteurs (Momentum, Volatilité) ne sont pas disponibles pour l'affichage.
+                        </p>
+                    </div>
+                """, unsafe_allow_html=True)
 
-        # Table détaillée
-        st.markdown("---")
-        st.markdown("#### 📋 Tableau Détaillé des Prédictions")
+        st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+
+        # Enhanced Detailed Table Section
+        st.markdown("""
+            <div style='
+                background: white;
+                padding: 2rem;
+                border-radius: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                margin-bottom: 2rem;
+            '>
+                <h2 style='color: #003A8F; font-size: 1.75rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;'>
+                    <span style='font-size: 2rem;'>📋</span>
+                    Tableau Détaillé des Prédictions
+                </h2>
+        """, unsafe_allow_html=True)
 
         # Format for display
         display_df = predictions.copy()
@@ -165,6 +386,8 @@ def show():
             use_container_width=True,
             height=400
         )
+        
+        st.markdown("</div>", unsafe_allow_html=True)
 
         # Informations additionnelles
         with st.expander("📚 Méthodologie & Facteurs Utilisés"):
@@ -191,18 +414,34 @@ def show():
             - Split train/test: 80/20 temporel
             """)
 
-        # Export
-        st.markdown("---")
-        csv_pred = predictions.to_csv(index=False)
-        st.download_button(
-            label="📥 Télécharger les Prédictions (CSV)",
-            data=csv_pred,
-            file_name="ml_predictions.csv",
-            mime="text/csv"
-        )
+        # Enhanced Export Section
+        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+        
+        col_export, col_warning = st.columns([1, 1])
+        
+        with col_export:
+            csv_pred = predictions.to_csv(index=False)
+            st.download_button(
+                label="📥 Télécharger les Prédictions (CSV)",
+                data=csv_pred,
+                file_name="ml_predictions.csv",
+                mime="text/csv",
+                use_container_width=True
+            )
 
-        # Warning
-        st.warning("""
-        ⚠️ **Disclaimer** : Ces prédictions sont basées sur des modèles statistiques et ne constituent pas
-        des conseils d'investissement. Les performances passées ne préjugent pas des performances futures.
-        """)
+        with col_warning:
+            st.markdown("""
+                <div style='
+                    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%);
+                    padding: 1.5rem;
+                    border-radius: 12px;
+                    border-left: 4px solid #F59E0B;
+                '>
+                    <div style='font-size: 1.5rem; margin-bottom: 0.5rem;'>⚠️</div>
+                    <div style='font-weight: 600; color: #003A8F; margin-bottom: 0.5rem;'>Disclaimer</div>
+                    <p style='color: #4D4D4D; margin: 0; font-size: 0.9rem; line-height: 1.5;'>
+                        Ces prédictions sont basées sur des modèles statistiques et ne constituent pas
+                        des conseils d'investissement. Les performances passées ne préjugent pas des performances futures.
+                    </p>
+                </div>
+            """, unsafe_allow_html=True)
